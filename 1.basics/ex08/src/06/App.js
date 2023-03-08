@@ -6,8 +6,8 @@ function App() {
   return (
     <Fragment>
       <Header />
-      <Content />
-    </Fragment>        
+      <Content />      
+    </Fragment>    
   );
 }
 
