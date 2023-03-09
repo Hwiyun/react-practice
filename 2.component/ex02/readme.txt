@@ -1,10 +1,13 @@
-ex01: Property(props)
-1) 컴포넌트의 데이터
-2) 부모에서 자식으로 전달
-   - 컴포넌트간의 통신, Data Flow
-   - Top -> Down
-3) 자식에서 변경 불가
-4) 부모가 소유한 데이터
+ex02: Component Styling
+
+1) Inline Styling
+2) Normal CSS
+3) CSS Module
+4) CSS Module
+5) SASS $ SCSS
+6) CSS in JS: Styled Component*, Less & Styleable
+7) React Modal 
+8) Modal: material UI
 
 src/01: FoodList: 함수 컴포넌트  
 src/02: FoodList: Data Flow(Top->Down): 함수 컴포넌트  
