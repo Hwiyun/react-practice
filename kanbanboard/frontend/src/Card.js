@@ -1,13 +1,15 @@
 import React from 'react';
 import styles from './assets/scss/Card.scss';
-const Card = ({no, title, description}) => {
+import TaskList from './TaskList';
+
+const Card = ({no, title, description, tasks}) => {
     return (
-        <div className = {styles.Card}>
-            <div className={styles.Card__title}>{title}
-            </div>
+        <div className={styles.Card}>
+            <div className={styles.Card__Title}>{title}</div>
             <div className={styles.Card__Details}>
                 {description}
-            </div>
+            </div>  
+            <TaskList tasks={tasks} />
         </div>
     );
 };
