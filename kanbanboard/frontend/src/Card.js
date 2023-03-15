@@ -2,9 +2,14 @@ import React, {useState} from 'react';
 import styles from './assets/scss/Card.scss';
 import TaskList from './TaskList';
 
-const Card = ({no, title, description, tasks, callback}) => {
+const Card = ({no, title, description}) => {
+    
     const [showDetail, setShowDetail] = useState(false);
+    const [tasks, setTasks] = useState([]);
 
+    const addTask = async (taskName) => {
+        console.log(taskName);
+    }
     return (
         <div className={styles.Card}>
             <div
@@ -13,14 +18,23 @@ const Card = ({no, title, description, tasks, callback}) => {
                         [styles.Card__Title, styles.Card__Title__open].join(' ') : 
                         styles.Card__Title
                 }
-                onClick={e => setShowDetail(!showDetail)}>
+                onClick={async () => {
+                    if(!showDetail) {
+                        const response = await fetch
+                    }
+                 
+                setShowDetail(!showDetail)
+                }}>
                 {title}
             </div>            
             {
                 showDetail ?    
                     <div className={styles.Card__Details}>
                         {description}
-                        <TaskList cardNo={no} tasks={tasks} callback={callback}/>
+                        <TaskList 
+                            cardNo={no}
+                            tasks={tasks}
+                            callbackAddTask={addTask}/>
                     </div>
                     :
                     null
