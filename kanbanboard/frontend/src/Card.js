@@ -6,8 +6,41 @@ const Card = ({no, title, description}) => {
     const [showDetail, setShowDetail] = useState(false);
     const [tasks, setTasks] = useState([]);
     
+    const changeTaskDone = async () => {
+
+    }
+
     const addTask = async (taskName) => {
-        console.log(taskName);
+        const newTask = {
+            no: null,
+            name: taskName,
+            done: 'N',
+            cardNo: no
+        };
+        try {
+            const response = await fetch(`/api/task`, {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newTask)
+            });
+
+            if(!response.ok) {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+
+            const json = await response.json();
+            if(json.result !== 'success') {
+                throw new Error(`${json.result} ${json.message}`)
+            }
+
+            setTasks([json.data, ...tasks]);
+        } catch(err) {
+            console.log(err.message);
+        }                        
+
     }
 
     return (
@@ -54,7 +87,8 @@ const Card = ({no, title, description}) => {
                         <TaskList
                             cardNo={no}
                             tasks={tasks}
-                            callbackAddTask={addTask}/>
+                            callbackAddTask={addTask}
+                            callbackChangeTaskDone={changeTaskDone}/>
                     </div>
                     :
                     null

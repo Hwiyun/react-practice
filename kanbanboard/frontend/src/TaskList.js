@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Task from './Task';
 import styles from './assets/css/TaskList.css';
 
-const TaskList = ({cardNo}) => {
+const TaskList = ({cardNo, tasks, callbackAddTask, callbackChangeTaskDone}) => {
     const [tasks, setTasks, callbackAddTask] =  useState([]);
     return (
         <div>
@@ -13,7 +13,8 @@ const TaskList = ({cardNo}) => {
                                         no={task.no}
                                         cardNo={cardNo}                                        
                                         name={task.name}
-                                        done={task.done}/>)
+                                        done={task.done}
+                                        callbackChangeTaskDone={callbackChangeTaskDone}/>)
                 }
             </ul>
             <input 
