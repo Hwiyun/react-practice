@@ -3,11 +3,13 @@ react-practice - 3.routing
 01. src/01: React Route Basic I: 간단한 방법(Hash)
 02. src/02: React Route Basic II: HTML5 histroy API
 03. src/03: React Route Basic III: HashRouter vs BrowserRouter
+   - 설치
+      $ npm i react-router react-router-dom
 04. src/04: React Route Basic IV: Link vs NavLink
 05. Styling(Layout)
 06. Composition
 07. Nesting Route
-08. useRoute({})
+08. useRoute
 ==============================================================================================
 
 1. 설치
