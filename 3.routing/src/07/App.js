@@ -4,10 +4,13 @@ import {Routes, Route} from 'react-router';
 import Main from "./component/Main";
 import Gallery from "./component/Gallery";
 import Guestbook from "./component/Guestbook";
-import Join from './component/'
-import About from "./component/about";
+import Join from './component/user/Join';
+import Login from './component/user/Login';
+import Settings from './component/user/Settings';
 import Error404 from "./component/error/Error404";
-
+import About from "./component/about";
+import Me from "./component/about/Me";
+import Location from "./component/about/Location";
 
 import './assets/scss/App.scss'
 
@@ -21,8 +24,12 @@ export default function App() {
                 <Route path={'user/join'} element={<Join />}/>
                 <Route path={'user/login'} element={<Login />}/>
                 <Route path={'user/settings'} element={<Settings />}/>
+                <Route element={<About />}>
+                    <Route path={'about/me'} element={<Me />} />
+                    <Route path={'about/location'} element={<Location />} />
+                </Route>
 
-                <Route path={"*"} element={<Error404 />}/>
+                <Route path={"*"} element={<Error404 />} />
             </Routes>
         </Router>
     );

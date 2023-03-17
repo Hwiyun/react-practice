@@ -22,7 +22,7 @@ const KanbanBoard = () => {
             if(json.result !== 'success') {
                 throw new Error(`${json.result} ${json.message}`)
             }
-            
+
             setCards(json.data);
         } catch(err) {
             console.log(err.message);
@@ -32,7 +32,7 @@ const KanbanBoard = () => {
     useEffect(()=>{
         fetchCards();
     }, []);
-    
+
     return (
         <div className={styles.KanbanBoard}>
             <CardList 
